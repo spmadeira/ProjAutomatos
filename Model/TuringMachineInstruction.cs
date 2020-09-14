@@ -20,6 +20,8 @@
             tapeIndexInput = insts[4];
             movementDirection = insts[5];
 
+            var entry = new TuringMachineDataEntry();
+            
             return this;
         }
     }

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "siiz4KA5gvLCvy9jIbbYObkPDYX7H1Rj+rauHJyDtSInLr4FPrVNEA2lxnsiAeS7f6H//+KfzfUYfqQk/Xgehw==",
+  "dgSpecHash": "VFegtrpmRwymTfj7emxE0zi3GV1jXDgR561pFx5Ib5K3ftgP2MKBVw1BR2IPEQafAuZ6Z28D4lbwYTSHXq5p7w==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\proj_automatos\\proj_automatos.csproj",
+  "projectFilePath": "D:\\Projects\\ProjAutomatos\\proj_automatos.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

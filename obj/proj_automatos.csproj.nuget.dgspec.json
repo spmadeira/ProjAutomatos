@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\proj_automatos\\proj_automatos.csproj": {}
+    "D:\\Projects\\ProjAutomatos\\proj_automatos.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\proj_automatos\\proj_automatos.csproj": {
+    "D:\\Projects\\ProjAutomatos\\proj_automatos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\proj_automatos\\proj_automatos.csproj",
+        "projectUniqueName": "D:\\Projects\\ProjAutomatos\\proj_automatos.csproj",
         "projectName": "proj_automatos",
-        "projectPath": "D:\\Projects\\proj_automatos\\proj_automatos.csproj",
+        "projectPath": "D:\\Projects\\ProjAutomatos\\proj_automatos.csproj",
         "packagesPath": "C:\\Users\\samue\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\proj_automatos\\obj\\",
+        "outputPath": "D:\\Projects\\ProjAutomatos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "D:\\Microsoft\\Xamarin\\NuGet\\"
+          "D:\\Microsoft\\Xamarin\\NuGet"
         ],
         "configFilePaths": [
           "C:\\Users\\samue\\AppData\\Roaming\\NuGet\\NuGet.Config",
