@@ -1,5 +1,4 @@
-﻿using DefaultNamespace;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
 using System.Text;
 
@@ -44,24 +43,24 @@ namespace AutomatosData
 
         private void BuildTapeFromString(string tape)
         {
-            TuringMachineData oldItem = null;
-            
-            foreach (var c in tape)
-            {
-                TuringMachineData tapeItem = new TuringMachineData(c.ToString());
-
-                if (oldItem != null)
-                {
-                    oldItem.Next = tapeItem;
-                    tapeItem.Prev = oldItem;
-                    oldItem = tapeItem;
-                }
-                else
-                {
-                    first = tapeItem;
-                    oldItem = tapeItem;
-                }
-            }
+            // TuringMachineData oldItem = null;
+            //
+            // foreach (var c in tape)
+            // {
+            //     TuringMachineData tapeItem = new TuringMachineData(c.ToString());
+            //
+            //     if (oldItem != null)
+            //     {
+            //         oldItem.Next = tapeItem;
+            //         tapeItem.Prev = oldItem;
+            //         oldItem = tapeItem;
+            //     }
+            //     else
+            //     {
+            //         first = tapeItem;
+            //         oldItem = tapeItem;
+            //     }
+            // }
         }
     }
 }

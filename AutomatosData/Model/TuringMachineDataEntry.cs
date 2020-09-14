@@ -55,9 +55,9 @@ namespace AutomatosData
                 entry = entry._prev;
 
             //Go to last
-            while (entry._next != null)
+            while (entry != null)
             {
-                yield return entry._next;
+                yield return entry;
                 entry = entry._next;
             }
         }
@@ -70,11 +70,11 @@ namespace AutomatosData
 
     public class TuringMachineDataEntry
     {
-        public TuringMachineDataEntry _prev;
-        public TuringMachineDataEntry _next;
-
-        public TuringMachineDataEntry Prev => _prev ??= new TuringMachineDataEntry();
-        public TuringMachineDataEntry Next => _next ??= new TuringMachineDataEntry();
+        internal TuringMachineDataEntry _prev;
+        internal TuringMachineDataEntry _next;
+        
+        public TuringMachineDataEntry Prev => _prev ??= new TuringMachineDataEntry{_next = this};
+        public TuringMachineDataEntry Next => _next ??= new TuringMachineDataEntry{_prev = this};
 
         public char Data { get; set; }
 
