@@ -1,4 +1,4 @@
-﻿namespace proj_automatos
+﻿namespace AutomatosData
 {
     public class TuringMachineInstruction
     {
