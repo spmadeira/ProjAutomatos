@@ -1,12 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AutomatosData
 {
     public class TuringMachineData : IEnumerable<TuringMachineDataEntry>
     {
-        public TuringMachineDataEntry Center;
+        public TuringMachineDataEntry Center { get; private set; }
+        
+        public char CurrentData => Center.Data;
+        public void MoveNext() => Center = Center.Next;
+        public void MovePrev() => Center = Center.Prev;
 
+        public void Write(char data)
+        {
+            if (data != '_') Center.Data = data;
+        }
+
+        public string ReadAll() => new string(this.Select(e => e.Data).Where(c => c != '_').ToArray());
+        
         public TuringMachineData()
         {
             Center = new TuringMachineDataEntry();

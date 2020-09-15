@@ -11,4 +11,8 @@
     <Folder Include="Model" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AutomatosData\AutomatosData.csproj" />
+  </ItemGroup>
+
 </Project>
