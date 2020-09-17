@@ -6,13 +6,11 @@
              xmlns:local="clr-namespace:proj_automatos.Controls"
              xmlns:fa="http://schemas.fontawesome.io/icons/"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid
-        Width="60"
-        Height="160">
+             d:DesignHeight="320" d:DesignWidth="120">
+    <Grid Width="80" Height="320">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="60"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <fa:ImageAwesome
             x:Name="Arrow"
@@ -20,12 +18,12 @@
             Margin="0 20 0 0"
             Foreground="DarkGray"
             Icon="LongArrowDown"
-            Height="50"
+            Height="100"
             />
         <Border
             x:Name="Border"
-            Width="40"
-            Height="40"
+            Width="80"
+            Height="80"
             VerticalAlignment="Center"
             Grid.Row="1"
             Background="#303952">

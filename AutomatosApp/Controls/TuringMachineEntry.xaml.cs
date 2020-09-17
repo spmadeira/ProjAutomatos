@@ -31,35 +31,17 @@ namespace proj_automatos.Controls
 
             if (isSource)
             {
-                Border.Width = 50;
-                Border.Width = 50;
+                EntryContent.Foreground = Brushes.Black;
                 Border.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#d2dae2");
                 Arrow.Visibility = Visibility.Visible;
-            }
-
-            EntryContent.Content = turingMachineDataEntry.Data;
-        }
-
-        public void SetSource(bool isSource)
-        {
-            if (isSource)
-            {
-                Border.Width = 50;
-                Border.Width = 50;
-                Border.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#d2dae2");
-                Arrow.Visibility = Visibility.Hidden;
             } else
             {
-                Border.Width = 40;
-                Border.Width = 40;
+                EntryContent.Foreground = Brushes.White;
                 Border.Background = (SolidColorBrush)new BrushConverter().ConvertFromString("#303952");
                 Arrow.Visibility = Visibility.Hidden;
             }
-        }
 
-        public void SetData(char data)
-        {
-            EntryContent.Content = data;
+            EntryContent.Content = turingMachineDataEntry.Data;
         }
     }
 }

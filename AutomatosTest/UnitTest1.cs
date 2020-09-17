@@ -12,7 +12,7 @@ namespace AutomatosTest
 
         }
 
-        [Test(Description = "Should create and properly index Turing Machine Data")]
+        [TestCase(TestName = "Should create and properly index Turing Machine Data")]
         public void Test1()
         {
             var turingMachineData = new TuringMachineData("1011");
@@ -31,7 +31,7 @@ namespace AutomatosTest
             Assert.AreEqual('1', turingMachineData[3].Data);
         }
 
-        [Test(Description = "Can append data before and after center")]
+        [TestCase(TestName = "Can append data before and after center")]
         public void Test2()
         {
             var turingMachineData = new TuringMachineData("0");
@@ -53,7 +53,7 @@ namespace AutomatosTest
             Assert.AreEqual('0', turingMachineData[2].Data);
         }
 
-        [Test(Description = "Append Y to end and X to start")]
+        [TestCase(TestName = "Append Y to end and X to start")]
         public void Test3()
         {
             var input =
@@ -79,7 +79,7 @@ q1,_,qf,X,>";
             Assert.AreEqual("X1011Y", turingMachine.Data.ReadAll());
         }
 
-        [Test(Description = "Add 1 to binary number")]
+        [TestCase(TestName = "Add 1 to binary number")]
         public void Test4()
         {
             var input =
@@ -104,7 +104,7 @@ q1,0,qf,1,<";
             Assert.AreEqual("1100", turingMachine.Data.ReadAll());
         }
 
-        [Test(Description = "Is Divisible by 5")]
+        [TestCase(TestName = "Is Divisible by 5")]
         public void Test5()
         {
             for (int i = 0; i < 128; i++)
@@ -137,7 +137,7 @@ q4,1,q4,1,>";
             }
         }
 
-        [Test(Description = "Ends on 01")] 
+        [TestCase(TestName = "Ends on 01")] 
         public void Test6()
         {
             for (int i = 0; i < 128; i++)
@@ -165,7 +165,7 @@ qcs,0,qv,0,<";
             }
         }
         
-        [Test(Description = "Block copy Input")] 
+        [TestCase(TestName = "Block copy input")] 
         public void Test7()
         {
             for (int i = 0; i < 128; i++)
@@ -231,16 +231,16 @@ qt,_,qf,_,>";
                     Assert.AreEqual(asBinaryString + asBinaryString, turingMachine.Data.ReadAll());
                     Assert.AreEqual(TuringMachine.FinishResult.Valid, turingMachine.Result);
                 }
-                catch (AssertionException ae)
+                catch (AssertionException)
                 {
                     Console.WriteLine("Failed. Log:");
                     Console.WriteLine(turingMachine.Log);
-                    throw ae;
+                    throw;
                 }
             }
         }
         
-        [Test(Description = "Multiply input by 2")] 
+        [TestCase(TestName = "Multiply input by 2")] 
         public void Test8()
         {
             for (int i = 0; i < 128; i++)

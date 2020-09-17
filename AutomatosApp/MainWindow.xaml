@@ -21,6 +21,23 @@
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
         <ScrollViewer
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            HorizontalScrollBarVisibility="Auto">
+            <StackPanel
+                x:Name="DataStackPanel"
+                Margin="15 0 0 0"
+                HorizontalAlignment="Center"
+                Orientation="Horizontal"
+                VerticalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="{x:Type c:TuringMachineEntry}">
+                        <Setter Property="Margin" Value="0 0 0 0"/>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </ScrollViewer>
+        <ScrollViewer
             Visibility="Collapsed"
             Grid.Row="1"
             HorizontalAlignment="Center"
@@ -101,9 +118,9 @@
             Row="2"
             Background="#78909C">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="400"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="10"/>
             </Grid.ColumnDefinitions>
             <Border
                 Grid.Column="1"
@@ -115,27 +132,35 @@
                     x:Name="TMStatusGrid"
                     Background="#ECEFF1">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="*"/>
-                        <RowDefinition Height="5"/>
-                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <Separator
-                        Grid.Row="1"
-                        Grid.ColumnSpan="4"/>
+                    <Border
+                        Grid.Column="2"
+                        Grid.RowSpan="2"
+                        Background="#CC808080"
+                        CornerRadius="2"
+                        Width="2"
+                        />
                     <Label
+                        Grid.Row="0"
+                        Grid.Column="0"
                         Content="Current State:"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"/>
                     <Label
                         x:Name="CurrentStateLabel"
+                        Grid.Row="0"
                         Grid.Column="1"
                         Content="xi"
                         FontSize="16"
@@ -143,76 +168,80 @@
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"/>
                     <Label
-                        Grid.Column="2"
+                        Grid.Row="1"
+                        Grid.Column="0"
                         Content="Current Data:"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"/>
                     <Label
                         x:Name="CurrentDataLabel"
-                        Grid.Column="3"
+                        Grid.Row="1"
+                        Grid.Column="1"
                         Content="1"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"/>
                     <Label
-                        Grid.Row="2"
+                        Grid.Row="0"
+                        Grid.Column="3"
                         Content="Next State:"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"/>
                     <Label
                         x:Name="NextStateLabel"
-                        Grid.Column="1"
-                        Grid.Row="2"
+                        Grid.Column="4"
+                        Grid.Row="0"
                         Content="x1"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"/>
                     <Label
-                        Grid.Row="2"
-                        Grid.Column="2"
+                        Grid.Row="1"
+                        Grid.Column="3"
                         Content="Input Data:"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"/>
                     <Label
                         x:Name="InputDataLabel"
-                        Grid.Row="2"
-                        Grid.Column="3"
+                        Grid.Row="1"
+                        Grid.Column="4"
                         Content="1"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"/>
                     <Label
-                        Grid.Row="3"
+                        Grid.Row="0"
+                        Grid.Column="5"
                         Content="Movement:"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"/>
                     <Label
                         x:Name="MovementLabel"
-                        Grid.Column="1"
-                        Grid.Row="3"
+                        Grid.Column="6"
+                        Grid.Row="0"
                         Content="&lt;"
                         FontSize="26"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"/>
                     <Label
-                        Grid.Row="3"
-                        Grid.Column="2"
+                        Grid.Row="1"
+                        Grid.Column="5"
                         Content="Machine State:"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"/>
                     <Label
                         x:Name="MachineStateLabel"
-                        Grid.Row="3"
-                        Grid.Column="3"
+                        Grid.Row="1"
+                        Grid.Column="6"
                         Content="Ready"
                         FontSize="16"
                         FontFamily="{StaticResource MaterialDesignFont}"
@@ -220,7 +249,87 @@
                         HorizontalContentAlignment="Center"/>
                 </Grid>
             </Border>
-            
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Button
+                    x:Name="OpenFileButton"
+                    Click="OpenFileButton_Click"
+                    Margin="20 0 20 0"
+                    Height="45">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="300"/>
+                        </Grid.ColumnDefinitions>
+                        <fa:ImageAwesome
+                            Grid.Column="0"
+                            Icon="File"
+                            Foreground="White"/>
+                        <Label
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            FontFamily="{StaticResource MaterialDesignFont}"
+                            FontSize="18"
+                            FontWeight="DemiBold"
+                            Foreground="White"
+                            Grid.Column="1"
+                            Margin="15 0 0 0"
+                            Content="Abrir Algoritmo"/>
+                    </Grid>
+                </Button>
+                <Grid
+                    Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button
+                        x:Name="PlayButton"
+                        Click="PlayButton_Click"
+                        Width="70"
+                        Height="70"
+                        Grid.Column="0">
+                        <fa:ImageAwesome
+                            Icon="Play"
+                            Foreground="White"/>
+                    </Button>
+                    <Button
+                        x:Name="ForwardButton"
+                        Click="ForwardButton_Click"
+                        Width="70"
+                        Height="70"
+                        Grid.Column="1">
+                        <fa:ImageAwesome
+                            Icon="Forward"
+                            Foreground="White"/>
+                    </Button>
+                    <Button
+                        x:Name="StopButton"
+                        Click="StopButton_Click"
+                        Width="70"
+                        Height="70"
+                        Grid.Column="2">
+                        <fa:ImageAwesome
+                            Icon="Stop"
+                            Foreground="White"/>
+                    </Button>
+                    <Button
+                        x:Name="ResetButton"
+                        Click="ResetButton_Click"
+                        Width="70"
+                        Height="70"
+                        Grid.Column="3">
+                        <fa:ImageAwesome
+                            Icon="Undo"
+                            Foreground="White"/>
+                    </Button>
+                </Grid>
+            </Grid>
         </Grid>
     </Grid>
 </Window>
