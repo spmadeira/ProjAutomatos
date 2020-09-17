@@ -217,7 +217,8 @@ qa1,b,qa1,b,>
 qa1,_,qr,1,<
 
 qt,x,qt,0,<
-qt,y,qt,1,<";
+qt,y,qt,1,<
+qt,_,qf,_,>";
                 var turingMachine = TuringMachine.FromText(input.Split('\n'));
 
                 while (turingMachine.MachineState != TuringMachine.State.Finished)
@@ -228,6 +229,7 @@ qt,y,qt,1,<";
                 try
                 {
                     Assert.AreEqual(asBinaryString + asBinaryString, turingMachine.Data.ReadAll());
+                    Assert.AreEqual(TuringMachine.FinishResult.Valid, turingMachine.Result);
                 }
                 catch (AssertionException ae)
                 {
