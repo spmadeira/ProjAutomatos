@@ -78,6 +78,8 @@ namespace AutomatosData
         public State MachineState { get; private set; }
         public FinishResult? Result { get; private set;  }
 
+        public string Log { get; private set; } = "";
+
         private TuringMachine(TuringMachineData data, 
             string initialState,
             string[] goalStates, 
@@ -162,10 +164,13 @@ namespace AutomatosData
                 Stop();
                 return;
             }
-
+            
+            var log = $"Current State: {CurrentState}, Current Data: {Data.CurrentData}, Next State: {instruction.InstructionExitState}, Output: {instruction.InstructionOutput}, Moving: {instruction.InstructionMovement.ToString()}, Data: {Data.ReadAll()}\n";
+            Log += log;
+            
             CurrentState = instruction.InstructionExitState;
             Data.Write(instruction.InstructionOutput);
-
+            
             switch (instruction.InstructionMovement)
             {
                 case TuringMachineInstruction.Movement.Left:
