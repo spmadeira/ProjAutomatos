@@ -4,9 +4,223 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:proj_automatos"
+        xmlns:c="clr-namespace:proj_automatos.Controls"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="600" Width="1024"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterOwner">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer
+            Visibility="Collapsed"
+            Grid.Row="1"
+            HorizontalAlignment="Center"
+            HorizontalContentAlignment="Center"
+            HorizontalScrollBarVisibility="Visible">
+            <StackPanel
+                Orientation="Horizontal"
+                HorizontalAlignment="Center">
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+                <Rectangle Width="40" Height="40" Fill="Black"/>
+            </StackPanel>
+        </ScrollViewer>
+        <Grid
+            MouseDown="TitleBar_MouseDown"
+            Background="#424242">
+            <Grid.Effect>
+                <DropShadowEffect ShadowDepth="2"></DropShadowEffect>
+            </Grid.Effect>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="30"/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                HorizontalContentAlignment="Center"
+                FontFamily="{StaticResource MaterialDesignFont}"
+                FontSize="21"
+                Foreground="White"
+                FontWeight="DemiBold"
+                Content="Automatos"/>
+            <Button
+                Click="ExitButtonClick"
+                Grid.Column="2"
+                Width="25"
+                Height="25"
+                Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}"
+                Background="{x:Null}"
+                BorderBrush="{x:Null}">
+                <fa:ImageAwesome
+                    Width="20"
+                    Height="20"
+                    Icon="Close"/>
+            </Button>
+        </Grid>
+        <Grid
+            Row="2"
+            Background="#78909C">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="280"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="280"/>
+            </Grid.ColumnDefinitions>
+            <Border
+                Grid.Column="1"
+                BorderBrush="#ECEFF1"
+                Margin="0 5 0 5"
+                BorderThickness="5"
+                CornerRadius="2">
+                <Grid
+                    x:Name="TMStatusGrid"
+                    Background="#ECEFF1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="5"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Separator
+                        Grid.Row="1"
+                        Grid.ColumnSpan="4"/>
+                    <Label
+                        Content="Current State:"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"/>
+                    <Label
+                        x:Name="CurrentStateLabel"
+                        Grid.Column="1"
+                        Content="xi"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                    <Label
+                        Grid.Column="2"
+                        Content="Current Data:"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"/>
+                    <Label
+                        x:Name="CurrentDataLabel"
+                        Grid.Column="3"
+                        Content="1"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                    <Label
+                        Grid.Row="2"
+                        Content="Next State:"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"/>
+                    <Label
+                        x:Name="NextStateLabel"
+                        Grid.Column="1"
+                        Grid.Row="2"
+                        Content="x1"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                    <Label
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        Content="Input Data:"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"/>
+                    <Label
+                        x:Name="InputDataLabel"
+                        Grid.Row="2"
+                        Grid.Column="3"
+                        Content="1"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                    <Label
+                        Grid.Row="3"
+                        Content="Movement:"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"/>
+                    <Label
+                        x:Name="MovementLabel"
+                        Grid.Column="1"
+                        Grid.Row="3"
+                        Content="&lt;"
+                        FontSize="26"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                    <Label
+                        Grid.Row="3"
+                        Grid.Column="2"
+                        Content="Machine State:"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"/>
+                    <Label
+                        x:Name="MachineStateLabel"
+                        Grid.Row="3"
+                        Grid.Column="3"
+                        Content="Ready"
+                        FontSize="16"
+                        FontFamily="{StaticResource MaterialDesignFont}"
+                        VerticalContentAlignment="Center"
+                        HorizontalContentAlignment="Center"/>
+                </Grid>
+            </Border>
+            
+        </Grid>
     </Grid>
 </Window>

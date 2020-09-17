@@ -24,5 +24,15 @@ namespace proj_automatos
         {
             InitializeComponent();
         }
+
+        private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+        
+        private void ExitButtonClick(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
