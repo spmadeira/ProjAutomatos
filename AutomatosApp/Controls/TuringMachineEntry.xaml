@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
         <fa:ImageAwesome
             x:Name="Arrow"
-            Visibility="Hidden"
+            Visibility="Visible"
             Margin="0 20 0 0"
-            Foreground="DarkGray"
+            Foreground="Orange"
             Icon="LongArrowDown"
             Height="100"
             />

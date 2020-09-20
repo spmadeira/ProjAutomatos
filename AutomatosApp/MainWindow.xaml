@@ -16,7 +16,7 @@
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="150"/>
         </Grid.RowDefinitions>
@@ -37,49 +37,6 @@
                 </StackPanel.Resources>
             </StackPanel>
         </ScrollViewer>
-        <ScrollViewer
-            Visibility="Collapsed"
-            Grid.Row="1"
-            HorizontalAlignment="Center"
-            HorizontalContentAlignment="Center"
-            HorizontalScrollBarVisibility="Visible">
-            <StackPanel
-                Orientation="Horizontal"
-                HorizontalAlignment="Center">
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-                <Rectangle Width="40" Height="40" Fill="Black"/>
-            </StackPanel>
-        </ScrollViewer>
         <Grid
             MouseDown="TitleBar_MouseDown"
             Background="#424242">
@@ -87,14 +44,15 @@
                 <DropShadowEffect ShadowDepth="2"></DropShadowEffect>
             </Grid.Effect>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="45"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="30"/>
+                <ColumnDefinition Width="45"/>
             </Grid.ColumnDefinitions>
             <Label
                 Grid.Column="1"
                 HorizontalAlignment="Center"
                 HorizontalContentAlignment="Center"
+                VerticalAlignment="Center"
                 FontFamily="{StaticResource MaterialDesignFont}"
                 FontSize="21"
                 Foreground="White"
@@ -231,6 +189,15 @@
                         FontFamily="{StaticResource MaterialDesignFont}"
                         VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center"/>
+                    <Border
+                        x:Name="ResultBorder"
+                        Visibility="Hidden"
+                        Grid.Row="1"
+                        Grid.Column="6"
+                        CornerRadius="15"
+                        Margin="5"
+                        Background="SpringGreen">
+                    </Border>
                     <Label
                         Grid.Row="1"
                         Grid.Column="5"
@@ -249,7 +216,8 @@
                         HorizontalContentAlignment="Center"/>
                 </Grid>
             </Border>
-            <Grid>
+            <Grid
+                Margin="0 -8 0 8">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>

@@ -75,6 +75,15 @@ namespace proj_automatos
                 TuringMachine.MachineState == TuringMachine.State.Finished
                     ? TuringMachine.Result.ToString()
                     : TuringMachine.MachineState.ToString();
+
+            if (TuringMachine.MachineState == TuringMachine.State.Finished)
+            {
+                ResultBorder.Visibility = Visibility.Visible;
+                ResultBorder.Background =
+                    TuringMachine.Result == TuringMachine.FinishResult.Valid
+                        ? Brushes.SpringGreen
+                        : Brushes.Crimson;
+            } else ResultBorder.Visibility = Visibility.Hidden;
         }
 
         private void AutoPlayOnRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -89,22 +98,17 @@ namespace proj_automatos
 
         private void AutoPlayOnProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            Console.WriteLine("chegando aqui");
             UpdateData();
         }
 
         private void AutoPlayOnDoWork(object sender, DoWorkEventArgs e)
         {
-            Console.WriteLine("Entrando");
             while (!AutoPlay.CancellationPending && TuringMachine.MachineState != TuringMachine.State.Finished)
             {
-                Console.WriteLine("rodando");
                 TuringMachine.Run();
                 AutoPlay.ReportProgress(0);
-                Thread.Sleep(500);
+                Thread.Sleep(350);
             }
-
-            Console.WriteLine("acabou");
         }
 
         private void TitleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -150,11 +154,9 @@ namespace proj_automatos
         {
             TuringMachine = TuringMachine.FromText(input);
             UpdateData();
-            if (TuringMachine.MachineState == TuringMachine.State.Finished)
-            {
-                PlayButton.IsEnabled = false;
-                ForwardButton.IsEnabled = false;
-            }
+
+            PlayButton.IsEnabled = true;
+            ForwardButton.IsEnabled = true;
         }
 
         private void OpenFileButton_Click(object sender, RoutedEventArgs e)
